@@ -13,6 +13,15 @@ addBtn.addEventListener("click", () => {
 
 // Save data function
 function SaveData() {
-    const data = tasks.push(taskList.values());
-    localStorage.setItem("taskData", data);
+    localStorage.setItem("tasks", JSON.stringify(tasks));
+    loadItems();
+}
+
+// Load items function
+function loadItems() {
+    const data = localStorage.getItem("tasks");
+
+    if(data) {
+        tasks = JSON.parse(data);
+    }
 }
