@@ -3,25 +3,55 @@ const addBtn = document.getElementById("addBtn");
 const taskList = document.getElementById("taskList");
 let tasks = [];
 
+
+// Load tasks when the page loads
+
+window.addEventListener("load", () => {
+    loadTask();
+    renderTasks();
+})
 // Add task button
 addBtn.addEventListener("click", () => {
-    const li = document.createElement("li");
-    li.appendChild(document.createTextNode(taskInput.value));
-    taskList.appendChild(li);
-    SaveData();
+    const taskText = taskInput.value.trim();
+    if (taskText === "") return;
+
+    tasks.push(taskText);
+    saveTasks();
+    renderTasks();
+    taskInput.value = "";
 })
 
-// Save data function
-function SaveData() {
-    localStorage.setItem("tasks", JSON.stringify(tasks));
-    loadItems();
-}
-
-// Load items function
-function loadItems() {
-    const data = localStorage.getItem("tasks");
-
-    if(data) {
-        tasks = JSON.parse(data);
+  // Save tasks to localStorage
+    function saveTasks() {
+        localStorage.setItem("tasks", JSON.stringify(tasks));
     }
-}
+
+    // Load tasks from localStorage
+    function loadTasks() {
+        const data = localStorage.getItem("tasks");
+        if(data) {
+            tasks = JSON.parse(data);
+        }
+    }
+
+    // Render tasks to the UI
+    function renderTasks() {
+        taskList.innerHTML = ""; // Clear the list first
+
+        tasks.forEach((task, index) => {
+            const li = document.createElement("li");
+            li.textContent = task;
+
+            // Optional: Add a remove button
+            const removeBtn = document.createElement("button");
+            removeBtn.textContent = "x";
+            removeBtn.addEventListener("click", () => {
+                tasks.splice(index, 1); // remove task from array
+                saveTasks();
+                renderTasks();
+            });
+
+            li.appendChild(removeBtn);
+            taskList.appendChild(li);
+        });
+    }
