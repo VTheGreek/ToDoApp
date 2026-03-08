@@ -1,0 +1,51 @@
+body {
+    margin: 0;
+    padding: 0;
+    background: #dedada;
+}
+
+div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    flex-direction: column;
+}
+
+h1 {
+    position: static;
+}
+
+.container {
+    border: 1px solid black;
+}
+
+.input {
+    display: flex;
+    flex-direction: row;
+    gap: 1em;
+}
+
+#taskInput {
+    height: 50%;
+    width: 50%;
+}
+
+#addBtn {
+    background: rgb(68, 188, 239);
+    font-size: 1.6em;
+    border: 0.2px solid transparent;
+    box-shadow: 2px 2px;
+    cursor: pointer;
+    transition: transform .2s;
+}
+
+#addBtn:hover {
+    transform: scale(1.1);
+}
+
+ul {
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+}
