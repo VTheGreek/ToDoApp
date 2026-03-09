@@ -22,20 +22,22 @@ h1 {
 }
 
 .container {
-    border: 1px solid black;
+    border: 1px solid transparent;
 }
 
 .input {
     display: flex;
     flex-direction: row;
     gap: 1em;
-    height: 20em;
-    width: 20em;
+    height: 10em;
+    width: 30em;
 }
 
 #taskInput {
     height: 50%;
     width: 50%;
+    border-radius: 8px;
+    margin-left: 4em;
 }
 
 #addBtn {
