@@ -39,12 +39,21 @@ addBtn.addEventListener("click", () => {
         taskList.innerHTML = ""; // Clear the list first
 
         tasks.forEach((task, index) => {
-            const li = document.createElement("li");
-            li.textContent = task;
+            const li = document.createElement("li"); 
+
+            const checkbox = document.createElement("input");
+            checkbox.type = "checkbox";
+
+            const text = document.createTextNode(task);
+
+            li.appendChild(checkbox);
+            li.appendChild(text);
+
 
             // Optional: Add a remove button
             const removeBtn = document.createElement("button");
             removeBtn.textContent = "x";
+            removeBtn.classList.add("remove-btn");
             removeBtn.addEventListener("click", () => {
                 tasks.splice(index, 1); // remove task from array
                 saveTasks();

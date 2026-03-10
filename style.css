@@ -58,3 +58,18 @@ ul {
     justify-content: center;
     align-items: center;
 }
+
+li {
+    font-size: 1.5em;
+    list-style: none;
+}
+
+input {
+    background: red;
+}
+
+.remove-btn {
+    background: transparent;
+    font-size: 1.2em;
+    margin-left: 1em;
+}
