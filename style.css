@@ -1,7 +1,7 @@
 body {
     margin: 0;
     padding: 0;
-    background: #dedada;
+    background: rgb(37, 37, 37);
 }
 
 div {
@@ -14,11 +14,8 @@ div {
 
 h1 {
     position: static;
-    border: 1px solid black;
     padding: 0.2em;
-    background-color: rgb(176, 185, 4);
-    box-shadow: 1px 1px 10px rgb(48, 120, 175);
-    border-radius: 5%;
+    color: rgba(245, 245, 245, 0.884);
 }
 
 .container {
@@ -29,8 +26,8 @@ h1 {
     display: flex;
     flex-direction: row;
     gap: 1em;
-    height: 10em;
-    width: 30em;
+    height: 4em;
+    width: 25em;
 }
 
 #taskInput {
@@ -46,7 +43,7 @@ h1 {
     border: 0.2px solid transparent;
     box-shadow: 2px 2px;
     cursor: pointer;
-    transition: transform .2s;
+    transition: transform .3s;
 }
 
 #addBtn:hover {
@@ -62,14 +59,28 @@ ul {
 li {
     font-size: 1.5em;
     list-style: none;
+    color: rgba(245, 245, 245, 0.884);;
 }
 
 input {
-    background: red;
+    text-align: center;
 }
 
 .remove-btn {
     background: transparent;
+    border: 1px solid transparent;
     font-size: 1.2em;
     margin-left: 1em;
+    color: rgb(167, 7, 7);
+    cursor: pointer;
+    transition: transform .3s;
+}
+
+.remove-btn:hover {
+    transform: scale(1.3);
+}
+
+.completed {
+  text-decoration: line-through;
+  opacity: 0.6;
 }

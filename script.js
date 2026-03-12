@@ -7,7 +7,7 @@ let tasks = [];
 // Load tasks when the page loads
 
 window.addEventListener("load", () => {
-    loadTask();
+    loadTasks();
     renderTasks();
 })
 // Add task button
@@ -38,12 +38,16 @@ addBtn.addEventListener("click", () => {
     function renderTasks() {
         taskList.innerHTML = ""; // Clear the list first
 
+        
         tasks.forEach((task, index) => {
             const li = document.createElement("li"); 
-
+            
             const checkbox = document.createElement("input");
             checkbox.type = "checkbox";
-
+            
+            checkbox.addEventListener("change", () => {
+                li.classList.toggle("completed")
+            });
             const text = document.createTextNode(task);
 
             li.appendChild(checkbox);
